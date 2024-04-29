@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FTPBuddy.Pages.ServersPage"
+             Title="FTPBuddy"
+             BackgroundColor="#ededed"
+             xmlns:vm="clr-namespace:FTPBuddy.Models"
+             x:DataType="vm:FtpSavedServer">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add server" Clicked="AddServerToolbarItem_Clicked"  Priority="0"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <ListView x:Name="ServersListView" ItemTapped="ServersListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
+                            <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="server.png"/>
+                            <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text="{Binding Domain}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

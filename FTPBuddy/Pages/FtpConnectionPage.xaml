@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FTPBuddy.Pages.FtpConnectionPage"
+             xmlns:vm="clr-namespace:FTPBuddy.Models"
+             x:DataType="vm:FtpFileDirectoryModel"
+             Title="">
+    <VerticalStackLayout>
+        <Grid RowDefinitions="0.05*, 0.3*, 0.05*, 0.1*, 0.8*">
+            <Entry x:Name="FtpServerFilesDirectoryEntry" Grid.Row="0" FontSize="12" IsEnabled="False"/>
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout>
+                    <ListView x:Name="FtpItemListView" ItemTapped="FtpItemListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
+                                        <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="{Binding GetIcon}"/>
+                                        <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text="{Binding Name}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </VerticalStackLayout>
+            </ScrollView>
+            <VerticalStackLayout Grid.Row="2" BackgroundColor="#136ebd" Padding="10">
+                <Label Text="Local Files" FontSize="16" TextColor="White" FontAttributes="Bold"/>
+            </VerticalStackLayout>
+            <Entry x:Name="LocalFilesDirectoryEntry" Grid.Row="3" FontSize="12" IsEnabled="False"/>
+            <ScrollView Grid.Row="4">
+                <VerticalStackLayout>
+                    <ListView x:Name="MobileFileSystemListView" ItemTapped="MobileFileSystemListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
+                                        <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="{Binding GetIcon}"/>
+                                        <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text="{Binding Name}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

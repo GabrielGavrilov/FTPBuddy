@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FTPBuddy.Pages.AddNewServerPage"
+             Title="Add Server" BackgroundColor="#ededed">
+    <VerticalStackLayout Padding="15">
+        <Border Background="White" Padding="10" StrokeShape="RoundRectangle 10,10,10,10">
+            <VerticalStackLayout Spacing="15">
+                <Entry x:Name="entryDomain" Placeholder="Domain or IP"/>
+                <Entry x:Name="entryUsername" Placeholder="Username"/>
+                <Entry x:Name="entryPassword" IsPassword="True" Placeholder="Password"/>
+                <Button HorizontalOptions="End" Text="Add" Clicked="AddButton_Clicked"/>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
