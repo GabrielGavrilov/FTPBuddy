@@ -11,7 +11,7 @@
     <MauiXaml Update="Pages\AddNewServerPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\FtpConnectionPage.xaml">
+    <MauiXaml Update="Pages\ServerConnectionPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\ServersPage.xaml">

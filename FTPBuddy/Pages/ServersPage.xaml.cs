@@ -34,7 +34,7 @@ public partial class ServersPage : ContentPage
         {
             case "Connect":
                 FtpClient client = new FtpClient(server.Domain, server.Username, server.Password);
-                await Navigation.PushAsync(new FtpConnectionPage(client));
+                await Navigation.PushAsync(new ServerConnectionPage(client));
                 break;
             case "Delete":
                 await Database.DeleteFtpServer(server);
