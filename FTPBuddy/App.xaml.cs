@@ -16,7 +16,6 @@ namespace FTPBuddy
                 BarBackgroundColor = Color.FromHex("#136ebd"),
                 BarTextColor = Colors.White
             };
-
         }
     }
 }

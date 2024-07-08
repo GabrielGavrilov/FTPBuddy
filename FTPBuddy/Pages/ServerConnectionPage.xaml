@@ -9,6 +9,14 @@
         <Entry x:Name="ServerDirectoryEntry" FontSize="12" IsEnabled="False"/>
         <ScrollView MaximumHeightRequest="310" MinimumHeightRequest="310">
             <VerticalStackLayout>
+                <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ServerDirectoryGoBack_Tapped"/>
+                    </Grid.GestureRecognizers>
+                    <Image WidthRequest="30" Grid.Column="0" HeightRequest="30" Source="arrow.png"/>
+                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text=".."/>
+                </Grid>
+                <BoxView HeightRequest="1" Color="#e5e5e5"/>
                 <ListView x:Name="ServerDirectoryListView" ItemTapped="ServerDirectoryListView_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -29,6 +37,14 @@
         <Entry x:Name="LocalDirectoryEntry" FontSize="12" IsEnabled="False"/>
         <ScrollView MaximumHeightRequest="310" MinimumHeightRequest="310">
             <VerticalStackLayout>
+                <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White" BindingContext="">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="LocalDirectoryGoBack_Tapped"/>
+                    </Grid.GestureRecognizers>
+                    <Image WidthRequest="30" Grid.Column="0" HeightRequest="30" Source="arrow.png"/>
+                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text=".."/>
+                </Grid>
+                <BoxView HeightRequest="1" Color="#e5e5e5"/>
                 <ListView x:Name="LocalDirectoryListView" ItemTapped="LocalDirectoryListView_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>

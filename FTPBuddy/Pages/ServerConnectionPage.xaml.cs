@@ -1,5 +1,6 @@
 using FluentFTP;
 using FTPBuddy.Models;
+using Microsoft.Maui.Controls;
 
 namespace FTPBuddy.Pages;
 
@@ -71,6 +72,16 @@ public partial class ServerConnectionPage : ContentPage
 		ServerDirectoryListView.ItemsSource = GetFilesInFtpDirectory(ServerDirectoryEntry.Text);
 	}
 
+    private void ServerDirectoryGoBack_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void LocalDirectoryGoBack_Tapped(object sender, TappedEventArgs e)
+    {
+        DisplayAlert("Grid Tapped", "You tapped the grid!", "OK");
+    }
+
     private async void ServerDirectoryListView_ItemTapped(object sender, ItemTappedEventArgs e)
     {
 		FtpFileDirectoryModel file = (FtpFileDirectoryModel)e.Item;
@@ -119,4 +130,9 @@ public partial class ServerConnectionPage : ContentPage
 		
 		LocalDirectoryEntry.Text = file.FullName;
 	}
+
+    
+
+    
+
 }
