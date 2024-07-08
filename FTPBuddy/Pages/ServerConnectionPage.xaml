@@ -9,7 +9,7 @@
         <Entry x:Name="ServerDirectoryEntry" FontSize="12" IsEnabled="False"/>
         <ScrollView MaximumHeightRequest="310" MinimumHeightRequest="310">
             <VerticalStackLayout>
-                <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White">
+                <Grid x:Name="ServerDirectoryGoBack" ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White">
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ServerDirectoryGoBack_Tapped"/>
                     </Grid.GestureRecognizers>
@@ -37,7 +37,7 @@
         <Entry x:Name="LocalDirectoryEntry" FontSize="12" IsEnabled="False"/>
         <ScrollView MaximumHeightRequest="310" MinimumHeightRequest="310">
             <VerticalStackLayout>
-                <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White" BindingContext="">
+                <Grid x:Name="LocalDirectoryGoBack" ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White" BindingContext="">
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="LocalDirectoryGoBack_Tapped"/>
                     </Grid.GestureRecognizers>

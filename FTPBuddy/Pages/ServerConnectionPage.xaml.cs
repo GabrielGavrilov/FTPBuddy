@@ -17,7 +17,7 @@ public partial class ServerConnectionPage : ContentPage
 		Title = String.Format("{0}@{1}", Client.Credentials.UserName, Client.Host);
 
 		ServerDirectoryListView.ItemsSource = GetFilesInFtpDirectory("/");
-		LocalDirectoryListView.ItemsSource = GetFilesInMobileDirectory("/storage/emulated/0/");
+		LocalDirectoryListView.ItemsSource = GetFilesInMobileDirectory("/storage/emulated/0");
 	}
 
     protected override async void OnAppearing()
@@ -72,14 +72,25 @@ public partial class ServerConnectionPage : ContentPage
 		ServerDirectoryListView.ItemsSource = GetFilesInFtpDirectory(ServerDirectoryEntry.Text);
 	}
 
+	private string GetParentDirectory(string directory)
+	{
+		List<string> SplitDirectory = new List<string>(directory.Split("/"));
+		SplitDirectory.RemoveAt(SplitDirectory.Count() - 1);
+		return String.Join("/", SplitDirectory);
+	}
+
     private void ServerDirectoryGoBack_Tapped(object sender, TappedEventArgs e)
     {
-
+		string ParentDirectory = GetParentDirectory(ServerDirectoryEntry.Text);
+		ServerDirectoryListView.ItemsSource = GetFilesInFtpDirectory(ParentDirectory);
+		ServerDirectoryEntry.Text = ParentDirectory;
     }
 
     private void LocalDirectoryGoBack_Tapped(object sender, TappedEventArgs e)
     {
-        DisplayAlert("Grid Tapped", "You tapped the grid!", "OK");
+		string ParentDirectory = GetParentDirectory(LocalDirectoryEntry.Text);
+        LocalDirectoryListView.ItemsSource = GetFilesInMobileDirectory(ParentDirectory);
+		LocalDirectoryEntry.Text = ParentDirectory;
     }
 
     private async void ServerDirectoryListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -130,9 +141,4 @@ public partial class ServerConnectionPage : ContentPage
 		
 		LocalDirectoryEntry.Text = file.FullName;
 	}
-
-    
-
-    
-
 }
