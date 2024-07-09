@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
+using AndroidX.Core.View;
 
 namespace FTPBuddy
 {
@@ -11,6 +12,12 @@ namespace FTPBuddy
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            Window?.AddFlags(WindowManagerFlags.Fullscreen | WindowManagerFlags.LayoutInScreen);
+            Window?.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
+
+            var controller = Window?.InsetsController;
+            controller?.Hide(WindowInsets.Type.SystemBars());
         }
     }
 }

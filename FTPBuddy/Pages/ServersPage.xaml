@@ -16,7 +16,7 @@
                     <ViewCell>
                         <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
                             <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="server.png"/>
-                            <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text="{Binding Domain}"/>
+                            <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text="{Binding Domain}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

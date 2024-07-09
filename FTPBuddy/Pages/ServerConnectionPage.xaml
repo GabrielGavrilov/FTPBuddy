@@ -6,7 +6,7 @@
              x:DataType="vm:FtpFileDirectoryModel"
              Title="">
     <VerticalStackLayout>
-        <Entry x:Name="ServerDirectoryEntry" FontSize="12" IsEnabled="False"/>
+        <Entry x:Name="ServerDirectoryEntry" FontSize="12" BackgroundColor="White" IsEnabled="False"/>
         <ScrollView MaximumHeightRequest="310" MinimumHeightRequest="310">
             <VerticalStackLayout>
                 <Grid x:Name="ServerDirectoryGoBack" ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White">
@@ -23,7 +23,7 @@
                             <ViewCell>
                                 <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
                                     <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="{Binding GetIcon}"/>
-                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text="{Binding Name}"/>
+                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text="{Binding Name}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
@@ -34,7 +34,7 @@
         <VerticalStackLayout BackgroundColor="#136ebd" Padding="10">
             <Label Text="Local Files" FontSize="16" TextColor="White" FontAttributes="Bold"/>
         </VerticalStackLayout>
-        <Entry x:Name="LocalDirectoryEntry" FontSize="12" IsEnabled="False"/>
+        <Entry x:Name="LocalDirectoryEntry" FontSize="12" BackgroundColor="White" IsEnabled="False"/>
         <ScrollView MaximumHeightRequest="310" MinimumHeightRequest="310">
             <VerticalStackLayout>
                 <Grid x:Name="LocalDirectoryGoBack" ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="5" BackgroundColor="White" BindingContext="">
@@ -51,7 +51,7 @@
                             <ViewCell>
                                 <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
                                     <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="{Binding GetIcon}"/>
-                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text="{Binding Name}"/>
+                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text="{Binding Name}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
