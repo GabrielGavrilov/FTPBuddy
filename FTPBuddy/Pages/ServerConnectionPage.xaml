@@ -50,8 +50,8 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
-                                    
-                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text="{Binding FullName}"/>
+                                    <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="{Binding GetIcon}"/>
+                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text="{Binding Name}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
