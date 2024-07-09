@@ -14,7 +14,7 @@
                         <TapGestureRecognizer Tapped="ServerDirectoryGoBack_Tapped"/>
                     </Grid.GestureRecognizers>
                     <Image WidthRequest="30" Grid.Column="0" HeightRequest="30" Source="arrow.png"/>
-                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text=".."/>
+                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text=".."/>
                 </Grid>
                 <BoxView HeightRequest="1" Color="#e5e5e5"/>
                 <ListView x:Name="ServerDirectoryListView" ItemTapped="ServerDirectoryListView_ItemTapped">
@@ -42,7 +42,7 @@
                         <TapGestureRecognizer Tapped="LocalDirectoryGoBack_Tapped"/>
                     </Grid.GestureRecognizers>
                     <Image WidthRequest="30" Grid.Column="0" HeightRequest="30" Source="arrow.png"/>
-                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" Text=".."/>
+                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text=".."/>
                 </Grid>
                 <BoxView HeightRequest="1" Color="#e5e5e5"/>
                 <ListView x:Name="LocalDirectoryListView" ItemTapped="LocalDirectoryListView_ItemTapped">
@@ -50,8 +50,8 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Grid ColumnDefinitions="auto, *" ColumnSpacing="10" Padding="10" BackgroundColor="White">
-                                    <Image WidthRequest="35" Grid.Column="0" HeightRequest="35" Source="{Binding GetIcon}"/>
-                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text="{Binding Name}"/>
+                                    
+                                    <Label Grid.Column="1" VerticalOptions="Center" FontSize="14" TextColor="Black" Text="{Binding FullName}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

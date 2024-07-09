@@ -31,6 +31,11 @@ public partial class ServerConnectionPage : ContentPage
 		DirectoryInfo dir = new DirectoryInfo(directory);
 		LocalDirectoryEntry.Text = dir.FullName;
 
+		if(directory == "/storage/emulated/0")
+			LocalDirectoryGoBack.IsVisible = false;
+		else
+			LocalDirectoryGoBack.IsVisible = true;
+
 		foreach(FileSystemInfo info in dir.GetFileSystemInfos())
 		{
 			filesInDirectory.Add(new MobileFileDirectoryModel
@@ -46,6 +51,11 @@ public partial class ServerConnectionPage : ContentPage
 	{
 		List<FtpFileDirectoryModel> filesInDirectory = new List<FtpFileDirectoryModel>();
 		ServerDirectoryEntry.Text = directory;
+
+		if(directory == "/")
+			ServerDirectoryGoBack.IsVisible = false; 
+		else
+			ServerDirectoryGoBack.IsVisible = true;
 
 		foreach(FtpListItem item in Client.GetListing(directory))
 		{
@@ -107,6 +117,8 @@ public partial class ServerConnectionPage : ContentPage
 					DownloadFile(file);
 					break;
 				case "Delete":
+					Client.DeleteFile(file.FullName);
+					await DisplayAlert("", "File deleted", "Ok");
 					break;
 			}
 		}

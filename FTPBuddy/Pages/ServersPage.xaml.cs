@@ -11,7 +11,7 @@ public partial class ServersPage : ContentPage
 	public ServersPage(FtpServerDatabase database)
 	{
 		InitializeComponent();
-		Database = database;
+        Database = database;
     }
 
     protected override async void OnAppearing()
