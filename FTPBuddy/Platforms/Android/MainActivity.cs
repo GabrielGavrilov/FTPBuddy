@@ -12,12 +12,11 @@ namespace FTPBuddy
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            Window?.AddFlags(WindowManagerFlags.Fullscreen | WindowManagerFlags.LayoutInScreen);
-            Window?.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
-
-            var controller = Window?.InsetsController;
-            controller?.Hide(WindowInsets.Type.SystemBars());
+            Window.SetFlags(WindowManagerFlags.LayoutNoLimits, WindowManagerFlags.LayoutNoLimits);
+            Window.Attributes.LayoutInDisplayCutoutMode = LayoutInDisplayCutoutMode.ShortEdges;
+            Window.DecorView.SystemUiFlags =
+                (SystemUiFlags.ImmersiveSticky | SystemUiFlags.HideNavigation |
+                 SystemUiFlags.Fullscreen | SystemUiFlags.Immersive);
         }
     }
 }

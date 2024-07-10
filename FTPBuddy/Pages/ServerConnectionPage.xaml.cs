@@ -119,14 +119,15 @@ public partial class ServerConnectionPage : ContentPage
 				case "Delete":
 					Client.DeleteFile(file.FullName);
 					await DisplayAlert("", "File deleted", "Ok");
+					ServerDirectoryListView.ItemsSource = GetFilesInFtpDirectory(ServerDirectoryEntry.Text);
 					break;
 			}
 		}
-
 		else
-			ServerDirectoryListView.ItemsSource = GetFilesInFtpDirectory(file.FullName);
-
-		ServerDirectoryEntry.Text = file.FullName;
+		{
+            ServerDirectoryListView.ItemsSource = GetFilesInFtpDirectory(file.FullName);
+            ServerDirectoryEntry.Text = file.FullName;
+        }
 	}
 
     private async void LocalDirectoryListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -143,14 +144,17 @@ public partial class ServerConnectionPage : ContentPage
 					UploadFile(file);
 					break;
 				case "Delete":
+					file.DirectoryFileSystem.Delete();
+					await DisplayAlert("", "File deleted", "Ok");
+					LocalDirectoryListView.ItemsSource = GetFilesInMobileDirectory(LocalDirectoryEntry.Text);
 					break;
 			}
 
 		}
-
 		else
-			LocalDirectoryListView.ItemsSource = GetFilesInMobileDirectory(file.FullName);
-		
-		LocalDirectoryEntry.Text = file.FullName;
+		{
+            LocalDirectoryListView.ItemsSource = GetFilesInMobileDirectory(file.FullName);
+            LocalDirectoryEntry.Text = file.FullName;
+        }
 	}
 }
